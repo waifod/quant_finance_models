@@ -30,7 +30,7 @@ We need the following
 
 ## Components Design
 
-We need to have a design.
+We need to have a components design.
 
 - Class `Option`.
 - Derived classes for `CallOption` and `PutOption` inheriting from
