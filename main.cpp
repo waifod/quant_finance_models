@@ -16,17 +16,15 @@ int main() {
 
   my_test_class.SayHello();
 
-  Asset asset("hello");
+  std::string ticker{"fake_ticker"};
+  auto asset = std::make_shared<Asset>(ticker);
 
   std::shared_ptr<MarketDataProvider> market_data_provider = std::make_shared<MarketDataProvider>();
 
-  //auto model = Model(market_data_provider);
-  auto model = BlackScholes(market_data_provider);
+  auto model = std::make_shared<BlackScholes>(market_data_provider);
 
-  //auto model = std::make_shared<BlackScholes>(market_data_provider);
-
-  /*Pricing pricing;
+  Pricing pricing;
   pricing.SetModel(model);
 
-  std::cout << pricing.GetAssetPrice(asset) << std::endl;*/
+  std::cout << "Price of asset " << ticker << " is: " << pricing.GetAssetPrice(asset) << std::endl;
 }
