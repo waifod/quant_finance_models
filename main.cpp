@@ -1,22 +1,16 @@
 #include <iostream>
 
-#include <TestClass.hpp>
+#include <boost/math/distributions/normal.hpp>
 
+#include "asset/option.hpp"
 #include "market_data_provider.hpp"
 #include "pricing/model/black_scholes.hpp"
-#include "option.hpp"
 #include "pricing/pricing.hpp"
-
-#include <boost/math/distributions/normal.hpp>
 
 using namespace std;
 
 int main() {
-  cout << "Hello world!" << endl;
-
-  TestClass my_test_class;
-
-  my_test_class.SayHello();
+  cout << "Hello World!" << endl;
 
   auto gaussian = boost::math::normal_distribution(0, 1);
   std::cout << "Outputting random value: " << cdf(gaussian, 2) << std::endl;

@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "asset.hpp"
+#include "asset/asset.hpp"
 #include "market_data_provider.hpp"
 
 class Model {

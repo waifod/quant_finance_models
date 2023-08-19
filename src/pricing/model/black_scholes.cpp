@@ -9,6 +9,7 @@
 
 #include <boost/math/distributions/normal.hpp>
 
+#include "asset/asset.hpp"
 #include "market_data_provider.hpp"
 #include "pricing/model/model.hpp"
 
