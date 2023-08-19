@@ -7,10 +7,8 @@
 #include "pricing/model/black_scholes.hpp"
 #include "pricing/pricing.hpp"
 
-using namespace std;
-
 int main() {
-  cout << "Hello World!" << endl;
+  std::cout << "Hello World!" << std::endl;
 
   auto gaussian = boost::math::normal_distribution(0, 1);
   std::cout << "Outputting random value: " << cdf(gaussian, 2) << std::endl;
