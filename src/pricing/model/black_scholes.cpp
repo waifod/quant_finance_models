@@ -7,6 +7,8 @@
 #include <cmath>
 #include <memory>
 
+#include <boost/math/distributions/normal.hpp>
+
 #include "market_data_provider.hpp"
 #include "pricing/model/model.hpp"
 
@@ -23,8 +25,10 @@ noexcept {
   double strike_price = 2.0;  // TODO: Get the strike price
   int time_to_maturity = 2;  // TODO: Get the time to maturity
   double d_one = (std::log(spot_price / strike_price) +
-      (interest_rate + (sigma * sigma / 2) * time_to_maturity)) /
-      (sigma * std::sqrt(time_to_maturity));
+    (interest_rate + (sigma * sigma / 2) * time_to_maturity)) /
+    (sigma * std::sqrt(time_to_maturity));
   double d_two = d_one - sigma*std::sqrt(time_to_maturity);
-  return sigma;
+  auto gaussian = boost::math::normal_distribution(0, 1);
+  return cdf(gaussian, d_one)*spot_price -
+    cdf(gaussian, d_two)*strike_price*std::exp(-interest_rate*time_to_maturity);
 }
