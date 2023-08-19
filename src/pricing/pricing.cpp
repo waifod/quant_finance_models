@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "asset.hpp"
+#include "asset/asset.hpp"
 
 void Pricing::SetModel(std::shared_ptr<Model> model)
 noexcept {

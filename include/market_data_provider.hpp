@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "asset.hpp"
+#include "asset/asset.hpp"
 
 class MarketDataProvider {
  public:

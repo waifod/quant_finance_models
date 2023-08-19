@@ -2,9 +2,9 @@
 // Created by Durante, Matteo on 19/8/23.
 //
 
-#include "option.hpp"
+#include "asset/option.hpp"
 
-#include "asset.hpp"
+#include "asset/asset.hpp"
 
 Option::Option(std::string ticker, OptionType type, Asset underlying, double strike_price, int expiration_date)
 noexcept

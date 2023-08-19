@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "asset.hpp"
+#include "asset/asset.hpp"
 
 double MarketDataProvider::GetAssetSpotPrice(std::shared_ptr<Asset> asset) const
 noexcept {

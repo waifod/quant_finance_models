@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "asset/asset.hpp"
 #include "pricing/model/model.hpp"
 #include "pricing/pricing.hpp"
 
