@@ -7,11 +7,12 @@
 #include <memory>
 
 #include "asset.hpp"
+#include "pricing/model/model.hpp"
 
 class Pricing {
  public:
   void SetModel(std::shared_ptr<Model> model) noexcept;
-  double GetAssetPrice(Asset asset) const noexcept;
+  double GetAssetPrice(std::shared_ptr<Asset> asset) const noexcept;
 
  private:
   std::shared_ptr<Model> model_;

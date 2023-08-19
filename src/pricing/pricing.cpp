@@ -13,7 +13,7 @@ noexcept {
   model_ = model;
 }
 
-double Pricing::GetAssetPrice(Asset asset) const
+double Pricing::GetAssetPrice(std::shared_ptr<Asset> asset) const
 noexcept {
   return model_->GetAssetPrice(asset);
 }
