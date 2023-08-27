@@ -5,20 +5,16 @@
 #pragma once
 
 #include "asset/asset.hpp"
-
-enum class OptionType { CALL, PUT };
+#include "asset/asset_expiration.hpp"
+#include "asset/asset_strike_price.hpp"
+#include "asset/asset_trait_set.hpp"
+#include "asset/asset_type.hpp"
 
 class Option : public Asset {
  public:
-  Option(std::string ticker, OptionType type, Asset underlying, double strike_price, int expiration_date) noexcept;
-  OptionType GetType() const noexcept;
-  Asset GetUnderlying() const noexcept;
-  double GetStrikePrice() const noexcept;
-  int GetExpirationDate() const noexcept;
-
- private:
-  OptionType type_;
-  Asset underlying_;
-  double strike_price_;
-  int expiration_date_;
+  Option(const std::string& ticker, const AssetType& type,
+         const AssetTraitSet& traits) noexcept;
+  std::string GetUnderlying() const noexcept;
+  AssetStrikePrice GetStrikePrice() const noexcept;
+  AssetExpiration GetExpirationDate() const noexcept;
 };
