@@ -11,6 +11,7 @@
 
 class Model {
  public:
+  Model() = default;
   Model(std::shared_ptr<MarketDataProvider> market_data_provider) noexcept;
   virtual ~Model() = default;
   virtual double GetAssetPrice(std::shared_ptr<Asset> asset) const noexcept = 0;
