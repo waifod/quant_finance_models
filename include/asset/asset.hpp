@@ -2,11 +2,19 @@
 
 #include <string>
 
+#include "asset/asset_trait_set.hpp"
+#include "asset/asset_type.hpp"
+
 class Asset {
  public:
-  Asset(std::string ticker) noexcept;
+  explicit Asset(const std::string& ticker, const AssetType& type,
+                 const AssetTraitSet& traits) noexcept;
   std::string GetTicker() const noexcept;
+  AssetType GetType() const noexcept;
+  AssetTraitSet GetTraits() const noexcept;
 
- private:
-  const std::string ticker_;
+ protected:
+  std::string ticker_;
+  AssetType type_;
+  AssetTraitSet traits_;
 };

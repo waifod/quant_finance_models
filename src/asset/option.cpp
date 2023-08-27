@@ -5,31 +5,26 @@
 #include "asset/option.hpp"
 
 #include "asset/asset.hpp"
+#include "asset/asset_expiration.hpp"
+#include "asset/asset_strike_price.hpp"
+#include "asset/asset_type.hpp"
+#include "asset/trait/expiration_trait.hpp"
+#include "asset/trait/strike_price_trait.hpp"
+#include "asset/trait/type_trait.hpp"
+#include "asset/trait/underlying_trait.hpp"
 
-Option::Option(std::string ticker, OptionType type, Asset underlying, double strike_price, int expiration_date)
-noexcept
-: Asset(ticker)
-, type_{type}
-, underlying_{std::move(underlying)}
-, strike_price_{strike_price}
-, expiration_date_{expiration_date} {}
+Option::Option(const std::string& ticker, const AssetType& type,
+               const AssetTraitSet& traits) noexcept
+    : Asset(ticker, type, traits) {}
 
-OptionType Option::GetType() const
-noexcept {
-  return type_;
+std::string Option::GetUnderlying() const noexcept {
+  return traits_.GetValue<UnderlyingTrait>();
 }
 
-Asset Option::GetUnderlying() const
-noexcept {
-  return underlying_;
+AssetStrikePrice Option::GetStrikePrice() const noexcept {
+  return AssetStrikePrice(std::stod(traits_.GetValue<StrikePriceTrait>()));
 }
 
-double Option::GetStrikePrice() const
-noexcept {
-  return strike_price_;
-}
-
-int Option::GetExpirationDate() const
-noexcept {
-  return expiration_date_;
+AssetExpiration Option::GetExpirationDate() const noexcept {
+  return AssetExpiration(std::stoll(traits_.GetValue<ExpirationTrait>()));
 }
