@@ -51,4 +51,4 @@ int main() {
 }
 ```
 - Derived class `OptionPricing`.
-- Then use the Strategy design pattern for the different pricing models.
+- Then, use the Strategy design pattern for the different pricing models.
