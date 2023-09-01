@@ -5,6 +5,9 @@
 #include "qfm/asset/asset_trait_set.hpp"
 #include "qfm/asset/asset_type.hpp"
 
+namespace qfm {
+namespace asset {
+
 class Asset {
  public:
   explicit Asset(const std::string& ticker, const AssetType& type,
@@ -18,3 +21,6 @@ class Asset {
   AssetType type_;
   AssetTraitSet traits_;
 };
+
+}  // namespace trait
+}  // namespace asset

@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace qfm {
+namespace asset {
+
 class AssetType {
  public:
   explicit AssetType(const std::string& type) noexcept;
@@ -23,3 +26,6 @@ class AssetType {
  private:
   std::string type_;
 };
+
+}  // namespace trait
+}  // namespace asset

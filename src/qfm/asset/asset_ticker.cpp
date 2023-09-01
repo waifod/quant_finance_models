@@ -1,5 +1,8 @@
 #include "qfm/asset/asset_ticker.hpp"
 
+namespace qfm {
+namespace asset {
+
 AssetTicker::AssetTicker(const std::string& ticker) noexcept
     : ticker_{ticker} {}
 
@@ -17,3 +20,6 @@ bool AssetTicker::operator!=(const std::string& ticker) const {
 }
 
 AssetTicker::operator std::string() const { return ticker_; }
+
+}  // namespace asset
+}  // namespace qfm

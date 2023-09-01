@@ -2,6 +2,10 @@
 
 #include <string>
 
+namespace qfm {
+namespace asset {
+
+
 class AssetStrikePrice {
  public:
   explicit AssetStrikePrice(const double& strike_price) noexcept;
@@ -20,3 +24,6 @@ class AssetStrikePrice {
  private:
   double strike_price_;
 };
+
+}  // namespace trait
+}  // namespace asset

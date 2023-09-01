@@ -8,17 +8,18 @@
 
 #include "qfm/asset/asset.hpp"
 
-double MarketDataProvider::GetAssetSpotPrice(std::shared_ptr<Asset> asset) const
-noexcept {
+namespace qfm {
+
+double MarketDataProvider::GetAssetSpotPrice(
+    std::shared_ptr<asset::Asset> asset) const noexcept {
   return 1.0;
 }
 
-double MarketDataProvider::GetAssetVolatility(std::shared_ptr<Asset> asset) const
-noexcept {
+double MarketDataProvider::GetAssetVolatility(
+    std::shared_ptr<asset::Asset> asset) const noexcept {
   return 1.0;
 }
 
-double MarketDataProvider::GetInterestRate() const
-noexcept {
-  return 1.0;
-}
+double MarketDataProvider::GetInterestRate() const noexcept { return 1.0; }
+
+}  // namespace qfm

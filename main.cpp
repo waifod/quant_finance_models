@@ -19,19 +19,19 @@ int main() {
   std::cout << "Outputting random value: " << cdf(gaussian, 2) << std::endl;
 
   std::string ticker{"fake_ticker"};
-  AssetType type{AssetType::CALL_OPTION};
-  AssetExpiration expiration{1704067200};
-  AssetStrikePrice strike_price{10};
-  AssetTraitSet traits{
-      {ExpirationTrait(expiration), StrikePriceTrait(strike_price)}};
-  auto asset = std::make_shared<Asset>(ticker, type, traits);
+  qfm::asset::AssetType type{qfm::asset::AssetType::CALL_OPTION};
+  qfm::asset::AssetExpiration expiration{1704067200};
+  qfm::asset::AssetStrikePrice strike_price{10};
+  qfm::asset::AssetTraitSet traits{
+    {qfm::asset::trait::ExpirationTrait(expiration), qfm::asset::trait::StrikePriceTrait(strike_price)}};
+  auto asset = std::make_shared<qfm::asset::Asset>(ticker, type, traits);
 
-  std::shared_ptr<MarketDataProvider> market_data_provider =
-      std::make_shared<MarketDataProvider>();
+  std::shared_ptr<qfm::MarketDataProvider> market_data_provider =
+      std::make_shared<qfm::MarketDataProvider>();
 
-  auto model = std::make_shared<BlackScholes>(market_data_provider);
+  auto model = std::make_shared<qfm::pricing::model::BlackScholes>(market_data_provider);
 
-  Pricing pricing;
+  qfm::pricing::Pricing pricing;
   pricing.SetModel(model, type);
 
   std::cout << "Price of asset " << std::string(ticker)

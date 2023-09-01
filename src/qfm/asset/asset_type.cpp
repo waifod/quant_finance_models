@@ -1,5 +1,8 @@
 #include "qfm/asset/asset_type.hpp"
 
+namespace qfm {
+namespace asset {
+
 AssetType::AssetType(const std::string& type) noexcept : type_{type} {}
 
 bool AssetType::operator==(const AssetType& type) const {
@@ -22,3 +25,6 @@ const AssetType AssetType::CALL_OPTION = AssetType("call_option");
 const AssetType AssetType::PUT_OPTION = AssetType("currency");
 const AssetType AssetType::FUTURE = AssetType("currency");
 const AssetType AssetType::STOCK = AssetType("stock");
+
+}  // namespace asset
+}  // namespace qfm

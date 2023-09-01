@@ -2,6 +2,10 @@
 
 #include <string>
 
+namespace qfm {
+namespace asset {
+
+
 class AssetExpiration {
  public:
   explicit AssetExpiration(const int64_t& expiration) noexcept;
@@ -26,3 +30,6 @@ class AssetExpiration {
  private:
   int64_t expiration_;
 };
+
+}  // namespace trait
+}  // namespace asset

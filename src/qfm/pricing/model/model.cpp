@@ -6,6 +6,13 @@
 
 #include <memory>
 
-Model::Model(std::shared_ptr<MarketDataProvider> market_data_provider)
-noexcept
-: market_data_provider_{market_data_provider} {}
+namespace qfm {
+namespace pricing {
+namespace model {
+
+Model::Model(std::shared_ptr<MarketDataProvider> market_data_provider) noexcept
+    : market_data_provider_{market_data_provider} {}
+
+}  // namespace model
+}  // namespace pricing
+}  // namespace qfm

@@ -1,5 +1,8 @@
 #include "qfm/asset/asset_trait.hpp"
 
+namespace qfm {
+namespace asset {
+
 AssetTrait::AssetTrait(const std::string &key,
                        const std::string &value) noexcept
     : key_{key}, value_{value} {}
@@ -38,3 +41,6 @@ std::string AssetTrait::ToString() const noexcept {
 }
 
 const AssetTrait AssetTrait::NO_TRAIT = AssetTrait("", "");
+
+}  // namespace asset
+}  // namespace qfm

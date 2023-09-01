@@ -5,6 +5,10 @@
 
 #include "qfm/asset/asset_trait.hpp"
 
+namespace qfm {
+namespace asset {
+
+
 class AssetTraitSet {
  public:
   explicit AssetTraitSet(const std::set<AssetTrait>& traits) noexcept;
@@ -37,3 +41,6 @@ class AssetTraitSet {
  private:
   std::unordered_map<std::string, AssetTrait> traits_;
 };
+
+}  // namespace trait
+}  // namespace asset

@@ -13,18 +13,24 @@
 #include "qfm/asset/trait/type_trait.hpp"
 #include "qfm/asset/trait/underlying_trait.hpp"
 
+namespace qfm {
+namespace asset {
+
 Option::Option(const std::string& ticker, const AssetType& type,
                const AssetTraitSet& traits) noexcept
     : Asset(ticker, type, traits) {}
 
 std::string Option::GetUnderlying() const noexcept {
-  return traits_.GetValue<UnderlyingTrait>();
+  return traits_.GetValue<trait::UnderlyingTrait>();
 }
 
 AssetStrikePrice Option::GetStrikePrice() const noexcept {
-  return AssetStrikePrice(std::stod(traits_.GetValue<StrikePriceTrait>()));
+  return AssetStrikePrice(std::stod(traits_.GetValue<trait::StrikePriceTrait>()));
 }
 
 AssetExpiration Option::GetExpirationDate() const noexcept {
-  return AssetExpiration(std::stoll(traits_.GetValue<ExpirationTrait>()));
+  return AssetExpiration(std::stoll(traits_.GetValue<trait::ExpirationTrait>()));
 }
+
+}  // namespace asset
+}  // namespace qfm

@@ -15,21 +15,25 @@
 #include "qfm/market_data_provider.hpp"
 #include "qfm/pricing/model/model.hpp"
 
+namespace qfm {
+namespace pricing {
+namespace model {
+
 BlackScholes::BlackScholes(
     std::shared_ptr<MarketDataProvider> market_data_provider) noexcept
     : Model(market_data_provider) {}
 
 double BlackScholes::GetAssetPrice(
-    std::shared_ptr<Asset> asset) const noexcept {
+    std::shared_ptr<asset::Asset> asset) const noexcept {
   double sigma = market_data_provider_->GetAssetVolatility(asset);
   double spot_price = market_data_provider_->GetAssetSpotPrice(asset);
   double interest_rate = market_data_provider_->GetInterestRate();
 
-  AssetTraitSet traits = asset->GetTraits();
-  double strike_price = std::stod(traits.GetValue<StrikePriceTrait>());
+  asset::AssetTraitSet traits = asset->GetTraits();
+  double strike_price = std::stod(traits.GetValue<asset::trait::StrikePriceTrait>());
   int64_t current_time = 0;  // TODO: Get the current time
   int64_t time_to_maturity =
-      std::stoll(traits.GetValue<ExpirationTrait>()) - current_time;
+      std::stoll(traits.GetValue<asset::trait::ExpirationTrait>()) - current_time;
 
   double d_one = (std::log(spot_price / strike_price) +
                   (interest_rate + (sigma * sigma / 2) * time_to_maturity)) /
@@ -40,3 +44,7 @@ double BlackScholes::GetAssetPrice(
          cdf(gaussian, d_two) * strike_price *
              std::exp(-interest_rate * time_to_maturity);
 }
+
+}  // namespace model
+}  // namespace pricing
+}  // namespace qfm

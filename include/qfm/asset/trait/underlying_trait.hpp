@@ -5,6 +5,11 @@
 #include "qfm/asset/asset.hpp"
 #include "qfm/asset/asset_trait.hpp"
 
+namespace qfm {
+namespace asset {
+namespace trait {
+
+
 class UnderlyingTrait : public AssetTrait {
  public:
   explicit UnderlyingTrait(const Asset& underlying) noexcept;
@@ -13,3 +18,7 @@ class UnderlyingTrait : public AssetTrait {
 
   static const std::string Key;
 };
+
+}  // namespace trait
+}  // namespace asset
+}  // namespace qfm

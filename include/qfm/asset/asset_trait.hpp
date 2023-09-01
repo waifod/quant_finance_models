@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace qfm {
+namespace asset {
+
 class AssetTrait {
  public:
   virtual ~AssetTrait() = default;
@@ -29,3 +32,6 @@ class AssetTrait {
   std::string key_;
   std::string value_;
 };
+
+}  // namespace trait
+}  // namespace asset

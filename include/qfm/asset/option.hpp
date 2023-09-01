@@ -10,6 +10,9 @@
 #include "qfm/asset/asset_trait_set.hpp"
 #include "qfm/asset/asset_type.hpp"
 
+namespace qfm {
+namespace asset {
+
 class Option : public Asset {
  public:
   Option(const std::string& ticker, const AssetType& type,
@@ -18,3 +21,6 @@ class Option : public Asset {
   AssetStrikePrice GetStrikePrice() const noexcept;
   AssetExpiration GetExpirationDate() const noexcept;
 };
+
+}  // namespace trait
+}  // namespace asset

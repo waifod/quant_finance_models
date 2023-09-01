@@ -2,6 +2,10 @@
 
 #include <string>
 
+namespace qfm {
+namespace asset {
+
+
 class AssetTicker {
  public:
   explicit AssetTicker(const std::string& ticker) noexcept;
@@ -17,3 +21,6 @@ class AssetTicker {
  private:
   std::string ticker_;
 };
+
+}  // namespace trait
+}  // namespace asset
