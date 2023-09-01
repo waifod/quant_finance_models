@@ -5,7 +5,6 @@
 namespace qfm {
 namespace asset {
 
-
 class AssetExpiration {
  public:
   explicit AssetExpiration(const int64_t& expiration) noexcept;
@@ -31,5 +30,5 @@ class AssetExpiration {
   int64_t expiration_;
 };
 
-}  // namespace trait
 }  // namespace asset
+}  // namespace qfm

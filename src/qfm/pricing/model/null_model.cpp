@@ -14,7 +14,8 @@ NullModel::NullModel(
     std::shared_ptr<MarketDataProvider> market_data_provider) noexcept
     : Model(market_data_provider) {}
 
-double NullModel::GetAssetPrice(std::shared_ptr<asset::Asset> asset) const noexcept {
+double NullModel::GetAssetPrice(
+    std::shared_ptr<asset::Asset> asset) const noexcept {
   std::cout << "No pricing model provided. Returning dummy value for asset: " +
                    asset->GetTicker()
             << std::endl;

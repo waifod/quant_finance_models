@@ -25,11 +25,13 @@ std::string Option::GetUnderlying() const noexcept {
 }
 
 AssetStrikePrice Option::GetStrikePrice() const noexcept {
-  return AssetStrikePrice(std::stod(traits_.GetValue<trait::StrikePriceTrait>()));
+  return AssetStrikePrice(
+      std::stod(traits_.GetValue<trait::StrikePriceTrait>()));
 }
 
 AssetExpiration Option::GetExpirationDate() const noexcept {
-  return AssetExpiration(std::stoll(traits_.GetValue<trait::ExpirationTrait>()));
+  return AssetExpiration(
+      std::stoll(traits_.GetValue<trait::ExpirationTrait>()));
 }
 
 }  // namespace asset

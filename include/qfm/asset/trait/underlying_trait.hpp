@@ -9,7 +9,6 @@ namespace qfm {
 namespace asset {
 namespace trait {
 
-
 class UnderlyingTrait : public AssetTrait {
  public:
   explicit UnderlyingTrait(const Asset& underlying) noexcept;

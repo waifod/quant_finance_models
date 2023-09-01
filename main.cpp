@@ -23,13 +23,15 @@ int main() {
   qfm::asset::AssetExpiration expiration{1704067200};
   qfm::asset::AssetStrikePrice strike_price{10};
   qfm::asset::AssetTraitSet traits{
-    {qfm::asset::trait::ExpirationTrait(expiration), qfm::asset::trait::StrikePriceTrait(strike_price)}};
+      {qfm::asset::trait::ExpirationTrait(expiration),
+       qfm::asset::trait::StrikePriceTrait(strike_price)}};
   auto asset = std::make_shared<qfm::asset::Asset>(ticker, type, traits);
 
   std::shared_ptr<qfm::MarketDataProvider> market_data_provider =
       std::make_shared<qfm::MarketDataProvider>();
 
-  auto model = std::make_shared<qfm::pricing::model::BlackScholes>(market_data_provider);
+  auto model =
+      std::make_shared<qfm::pricing::model::BlackScholes>(market_data_provider);
 
   qfm::pricing::Pricing pricing;
   pricing.SetModel(model, type);

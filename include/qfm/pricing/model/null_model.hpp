@@ -10,7 +10,8 @@ namespace model {
 class NullModel : public Model {
  public:
   NullModel() = default;
-  explicit NullModel(std::shared_ptr<MarketDataProvider> market_data_provider) noexcept;
+  explicit NullModel(
+      std::shared_ptr<MarketDataProvider> market_data_provider) noexcept;
   double GetAssetPrice(std::shared_ptr<asset::Asset> asset) const noexcept;
 };
 

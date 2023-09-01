@@ -33,5 +33,5 @@ class AssetTrait {
   std::string value_;
 };
 
-}  // namespace trait
 }  // namespace asset
+}  // namespace qfm

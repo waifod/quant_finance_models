@@ -30,10 +30,12 @@ double BlackScholes::GetAssetPrice(
   double interest_rate = market_data_provider_->GetInterestRate();
 
   asset::AssetTraitSet traits = asset->GetTraits();
-  double strike_price = std::stod(traits.GetValue<asset::trait::StrikePriceTrait>());
+  double strike_price =
+      std::stod(traits.GetValue<asset::trait::StrikePriceTrait>());
   int64_t current_time = 0;  // TODO: Get the current time
   int64_t time_to_maturity =
-      std::stoll(traits.GetValue<asset::trait::ExpirationTrait>()) - current_time;
+      std::stoll(traits.GetValue<asset::trait::ExpirationTrait>()) -
+      current_time;
 
   double d_one = (std::log(spot_price / strike_price) +
                   (interest_rate + (sigma * sigma / 2) * time_to_maturity)) /

@@ -8,7 +8,6 @@
 namespace qfm {
 namespace asset {
 
-
 class AssetTraitSet {
  public:
   explicit AssetTraitSet(const std::set<AssetTrait>& traits) noexcept;
@@ -42,5 +41,5 @@ class AssetTraitSet {
   std::unordered_map<std::string, AssetTrait> traits_;
 };
 
-}  // namespace trait
 }  // namespace asset
+}  // namespace qfm

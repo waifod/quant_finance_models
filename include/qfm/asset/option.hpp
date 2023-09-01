@@ -22,5 +22,5 @@ class Option : public Asset {
   AssetExpiration GetExpirationDate() const noexcept;
 };
 
-}  // namespace trait
 }  // namespace asset
+}  // namespace qfm

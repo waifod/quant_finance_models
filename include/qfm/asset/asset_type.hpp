@@ -27,5 +27,5 @@ class AssetType {
   std::string type_;
 };
 
-}  // namespace trait
 }  // namespace asset
+}  // namespace qfm

@@ -22,5 +22,5 @@ class Asset {
   AssetTraitSet traits_;
 };
 
-}  // namespace trait
 }  // namespace asset
+}  // namespace qfm

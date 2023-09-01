@@ -19,7 +19,8 @@ void Pricing::SetModel(std::shared_ptr<model::Model> model,
   models_.insert(std::make_pair(type, model));
 }
 
-double Pricing::GetAssetPrice(std::shared_ptr<asset::Asset> asset) const noexcept {
+double Pricing::GetAssetPrice(
+    std::shared_ptr<asset::Asset> asset) const noexcept {
   auto it = models_.find(asset->GetType());
   if (it != models_.end()) {
     return it->second->GetAssetPrice(asset);

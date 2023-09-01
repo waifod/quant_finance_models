@@ -16,7 +16,8 @@ class BlackScholes : public Model {
  public:
   explicit BlackScholes(
       std::shared_ptr<MarketDataProvider> market_data_provider) noexcept;
-  double GetAssetPrice(std::shared_ptr<asset::Asset> asset) const noexcept override;
+  double GetAssetPrice(
+      std::shared_ptr<asset::Asset> asset) const noexcept override;
 };
 
 }  // namespace model
