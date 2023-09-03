@@ -5,27 +5,9 @@
 namespace qfm {
 namespace asset {
 
-class AssetType {
- public:
-  explicit AssetType(const std::string& type) noexcept;
-  ~AssetType() = default;
+enum AssetType { CURRENCY, BOND, STOCK, CALL_OPTION, PUT_OPTION, FUTURE };
 
-  bool operator==(const AssetType& type) const;
-  bool operator==(const std::string& type) const;
-  bool operator!=(const AssetType& type) const;
-  bool operator!=(const std::string& type) const;
-
-  operator std::string() const;
-
-  static const AssetType CURRENCY;
-  static const AssetType FUTURE;
-  static const AssetType CALL_OPTION;
-  static const AssetType PUT_OPTION;
-  static const AssetType STOCK;
-
- private:
-  std::string type_;
-};
+std::string ToString(const AssetType& type);
 
 }  // namespace asset
 }  // namespace qfm

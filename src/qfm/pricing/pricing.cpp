@@ -2,20 +2,19 @@
 // Created by Durante, Matteo on 19/8/23.
 //
 
-#include "qfm/pricing/pricing.hpp"
-
 #include <memory>
 #include <string>
 
 #include "qfm/asset/asset.hpp"
 #include "qfm/pricing/model/model.hpp"
 #include "qfm/pricing/model/null_model.hpp"
+#include "qfm/pricing/pricing.hpp"
 
 namespace qfm {
 namespace pricing {
 
 void Pricing::SetModel(std::shared_ptr<model::Model> model,
-                       const asset::AssetType& type) noexcept {
+                       const asset::AssetType type) noexcept {
   models_.insert(std::make_pair(type, model));
 }
 
