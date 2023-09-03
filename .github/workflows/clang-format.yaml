@@ -1,0 +1,29 @@
+name: clang-format
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Move to project directory
+      run: cd ${{github.workspace}}
+
+    - name: Run clang-format on source and headers
+      run: find src include -name '*.cpp' -o -name '*.hpp' | xargs -n1 clang-format --style=Google -i
+
+    - name: Run clang-format on main.cpp
+      run: clang-format --style=Google -i main.cpp
+
+    - name: Add changes
+      run: git add -a
+
+    - name: Commit changes
+      run: git commit -m 'Apply clang-format changes'
