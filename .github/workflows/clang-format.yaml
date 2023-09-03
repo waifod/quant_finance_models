@@ -13,6 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Set user name
+      run: git config user.name = 'Waifod'
+
+    - name: Set user email
+      run: git config user.email = 'waifod@proton.me'
+
     - name: Move to project directory
       run: cd ${{github.workspace}}
 
