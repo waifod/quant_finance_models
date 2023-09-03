@@ -12,8 +12,8 @@ namespace qfm {
 
 class MarketDataProvider {
  public:
-  double GetAssetSpotPrice(std::shared_ptr<asset::Asset> asset) const noexcept;
-  double GetAssetVolatility(std::shared_ptr<asset::Asset> asset) const noexcept;
+  double GetAssetSpotPrice(const std::string& asset) const noexcept;
+  double GetAssetVolatility(const std::string& asset) const noexcept;
   double GetInterestRate() const noexcept;
 };
 }  // namespace qfm
