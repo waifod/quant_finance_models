@@ -23,7 +23,7 @@ jobs:
       run: clang-format --style=Google -i main.cpp
 
     - name: Add changes
-      run: git add -a
+      run: git add -A
 
     - name: Commit changes
       run: git commit -m 'Apply clang-format changes'
