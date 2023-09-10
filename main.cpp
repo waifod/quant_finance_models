@@ -19,7 +19,7 @@ int main() {
   std::cout << "Outputting random value: " << cdf(gaussian, 2) << std::endl;
 
   std::string ticker{"fake_ticker"};
-  qfm::asset::AssetType type{qfm::asset::AssetType::CALL_OPTION};
+  qfm::asset::AssetType type{qfm::asset::AssetType::call_option};
   qfm::asset::AssetExpiration expiration{1704067200};
   qfm::asset::AssetStrikePrice strike_price{10};
   qfm::asset::AssetTraitSet traits{
