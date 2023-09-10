@@ -2,6 +2,8 @@
 // Created by Durante, Matteo on 19/8/23.
 //
 
+#include "qfm/pricing/model/black_scholes.hpp"
+
 #include <boost/math/distributions/normal.hpp>
 #include <chrono>
 #include <cmath>
@@ -12,7 +14,6 @@
 #include "qfm/asset/trait/strike_price_trait.hpp"
 #include "qfm/asset/trait/underlying_trait.hpp"
 #include "qfm/market_data_provider.hpp"
-#include "qfm/pricing/model/black_scholes.hpp"
 #include "qfm/pricing/model/model.hpp"
 
 namespace qfm {
