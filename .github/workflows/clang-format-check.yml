@@ -1,4 +1,4 @@
-name: clang-format
+name: clang-format-check
 
 on:
   push:
@@ -10,7 +10,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  build:
+  clang-format-check:
     runs-on: ubuntu-latest
 
     steps:
