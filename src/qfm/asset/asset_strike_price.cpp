@@ -5,25 +5,25 @@
 namespace qfm {
 namespace asset {
 
-AssetStrikePrice::AssetStrikePrice(const double& strike_price) noexcept
+AssetStrikePrice::AssetStrikePrice(double strike_price) noexcept
     : strike_price_{strike_price} {}
 
-bool AssetStrikePrice::operator==(const double& price) const {
+bool AssetStrikePrice::operator==(double price) const {
   return strike_price_ == price;
 }
-bool AssetStrikePrice::operator!=(const double& price) const {
+bool AssetStrikePrice::operator!=(double price) const {
   return strike_price_ != price;
 }
-bool AssetStrikePrice::operator<=(const double& price) const {
+bool AssetStrikePrice::operator<=(double price) const {
   return strike_price_ <= price;
 }
-bool AssetStrikePrice::operator>=(const double& price) const {
+bool AssetStrikePrice::operator>=(double price) const {
   return strike_price_ >= price;
 }
-bool AssetStrikePrice::operator<(const double& price) const {
+bool AssetStrikePrice::operator<(double price) const {
   return strike_price_ < price;
 }
-bool AssetStrikePrice::operator>(const double& price) const {
+bool AssetStrikePrice::operator>(double price) const {
   return strike_price_ > price;
 }
 

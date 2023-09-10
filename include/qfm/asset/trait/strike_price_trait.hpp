@@ -10,7 +10,7 @@ namespace trait {
 class StrikePriceTrait : public AssetTrait {
  public:
   explicit StrikePriceTrait(const AssetStrikePrice& strike_price) noexcept;
-  explicit StrikePriceTrait(const double& strike_price) noexcept;
+  explicit StrikePriceTrait(double strike_price) noexcept;
   ~StrikePriceTrait() = default;
   static const std::string Key;
 };
