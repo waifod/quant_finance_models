@@ -2,13 +2,14 @@
 // Created by Durante, Matteo on 19/8/23.
 //
 
+#include "qfm/pricing/pricing.hpp"
+
 #include <memory>
 #include <string>
 
 #include "qfm/asset/asset.hpp"
 #include "qfm/pricing/model/model.hpp"
 #include "qfm/pricing/model/null_model.hpp"
-#include "qfm/pricing/pricing.hpp"
 
 namespace qfm {
 namespace pricing {

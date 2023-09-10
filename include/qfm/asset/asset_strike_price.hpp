@@ -11,11 +11,11 @@ class AssetStrikePrice {
   ~AssetStrikePrice() = default;
 
   bool operator==(double price) const;
-  bool operator!=( double price) const;
-  bool operator<=( double price) const;
-  bool operator>=( double price) const;
-  bool operator<( double price) const;
-  bool operator>( double price) const;
+  bool operator!=(double price) const;
+  bool operator<=(double price) const;
+  bool operator>=(double price) const;
+  bool operator<(double price) const;
+  bool operator>(double price) const;
 
   operator double() const;
   operator std::string() const;
