@@ -4,12 +4,12 @@ namespace qfm {
 namespace asset {
 
 namespace {
-const std::string kCurrency = "currency";
-const std::string kBond = "bond";
-const std::string kStock = "stock";
-const std::string kCallOption = "call_option";
-const std::string kPutOption = "put_option";
-const std::string kFuture = "future";
+const std::string kCurrency{"currency"};
+const std::string kBond{"bond"};
+const std::string kStock{"stock"};
+const std::string kCallOption{"call_option"};
+const std::string kPutOption{"put_option"};
+const std::string kFuture{"future"};
 }  // namespace
 
 std::string ToString(const AssetType& type) {
