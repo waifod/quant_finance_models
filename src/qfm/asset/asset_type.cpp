@@ -14,17 +14,17 @@ const std::string kFuture = "future";
 
 std::string ToString(const AssetType& type) {
   switch (type) {
-    case CURRENCY:
+    case AssetType::CURRENCY:
       return kCurrency;
-    case BOND:
+    case AssetType::BOND:
       return kBond;
-    case STOCK:
+    case AssetType::STOCK:
       return kStock;
-    case CALL_OPTION:
+    case AssetType::CALL_OPTION:
       return kCallOption;
-    case PUT_OPTION:
+    case AssetType::PUT_OPTION:
       return kPutOption;
-    case FUTURE:
+    case AssetType::FUTURE:
       return kFuture;
   }
 }
