@@ -1,0 +1,23 @@
+name: clang-format
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: clang-format files
+      run: find src include main.cpp -name '*.cpp' -o -name '*.hpp' | xargs -n1 clang-format -i
+
+    - name: Check if something changed
+      run: git diff-index --quiet HEAD || exit 1
