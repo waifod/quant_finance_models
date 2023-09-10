@@ -5,7 +5,7 @@
 namespace qfm {
 namespace asset {
 
-enum class AssetType { CURRENCY, BOND, STOCK, CALL_OPTION, PUT_OPTION, FUTURE };
+enum class AssetType { currency, bond, stock, call_option, put_option, future };
 
 std::string ToString(const AssetType& type);
 
