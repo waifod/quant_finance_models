@@ -17,11 +17,11 @@ namespace pricing {
 class Pricing {
  public:
   void SetModel(std::shared_ptr<model::Model> model,
-                const asset::AssetType& type) noexcept;
+                const asset::AssetType type) noexcept;
   double GetAssetPrice(std::shared_ptr<asset::Asset> asset) const noexcept;
 
  private:
-  std::unordered_map<std::string, std::shared_ptr<model::Model>> models_;
+  std::unordered_map<asset::AssetType, std::shared_ptr<model::Model>> models_;
 };
 
 }  // namespace pricing
