@@ -19,6 +19,9 @@ jobs:
     - name: Install Boost libraries
       run: sudo apt-get install libboost-all-dev
 
+    - name: Install cURL libraries
+      run: sudo apt-get install curl libssl-dev libcurl4-openssl-dev
+
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
