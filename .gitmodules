@@ -1,3 +1,0 @@
-[submodule "lib/yahoo-finance"]
-	path = lib/yahoo-finance
-	url = https://github.com/foxadb/yahoo-finance.git
