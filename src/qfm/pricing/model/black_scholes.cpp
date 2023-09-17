@@ -7,9 +7,11 @@
 #include <boost/math/distributions/normal.hpp>
 #include <chrono>
 #include <cmath>
+#include <iostream>
 #include <memory>
 
 #include "qfm/asset/asset.hpp"
+#include "qfm/asset/asset_type.hpp"
 #include "qfm/asset/trait/expiration_trait.hpp"
 #include "qfm/asset/trait/strike_price_trait.hpp"
 #include "qfm/asset/trait/underlying_trait.hpp"
@@ -26,6 +28,15 @@ BlackScholes::BlackScholes(
 
 double BlackScholes::GetAssetPrice(
     std::shared_ptr<asset::Asset> asset) const noexcept {
+  asset::AssetType asset_type = asset->GetType();
+  if (asset_type != asset::AssetType::call_option &&
+      asset_type != asset::AssetType::put_option) {
+    std::cout << "Black-Scholes model received asset of invalid type "
+              << ToString(asset_type) << ", returning dummy price"
+              << std::endl;
+    return -1;
+  }
+
   asset::AssetTraitSet traits = asset->GetTraits();
   std::string underlying = traits.GetValue<asset::trait::UnderlyingTrait>();
   double strike_price =
@@ -45,9 +56,16 @@ double BlackScholes::GetAssetPrice(
                  (sigma * std::sqrt(time_to_maturity));
   double d_two = d_one - sigma * std::sqrt(time_to_maturity);
   auto gaussian = boost::math::normal_distribution(0, 1);
-  return cdf(gaussian, d_one) * spot_price -
-         cdf(gaussian, d_two) * strike_price *
-             std::exp(-interest_rate * time_to_maturity);
+
+  if (asset_type == asset::AssetType::call_option) {
+    return cdf(gaussian, d_one) * spot_price -
+           cdf(gaussian, d_two) * strike_price *
+               std::exp(-interest_rate * time_to_maturity);
+  }
+
+  return cdf(gaussian, -d_two) * strike_price *
+             std::exp(-interest_rate * time_to_maturity) -
+         cdf(gaussian, -d_one) * spot_price;
 }
 
 }  // namespace model
