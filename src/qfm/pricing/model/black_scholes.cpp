@@ -37,7 +37,12 @@ double BlackScholes::GetAssetPrice(
   double spot_price = market_data_provider_->GetAssetSpotPrice(underlying);
   double interest_rate = market_data_provider_->GetInterestRate();
 
-  int64_t current_time = 0;  // TODO: Get the current time
+  // This depends on the system_clock epoch being the Unix epoch, which is true
+  // from C++20 and the de facto standard in the preceding versions
+  int64_t current_time =
+      std::chrono::duration_cast<std::chrono::seconds>(
+          std::chrono::system_clock::now().time_since_epoch())
+          .count();
   int64_t time_to_maturity = expiration - current_time;
 
   double d_one = (std::log(spot_price / strike_price) +
