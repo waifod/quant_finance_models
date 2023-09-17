@@ -51,8 +51,9 @@ int main() {
        qfm::asset::trait::StrikePriceTrait(strike_price)}};
   auto asset = std::make_shared<qfm::asset::Asset>(ticker, type, traits);
 
+  double interest_rate = 1.02;
   std::shared_ptr<qfm::MarketDataProvider> market_data_provider =
-      std::make_shared<qfm::MarketDataProvider>();
+      std::make_shared<qfm::MarketDataProvider>(interest_rate);
 
   auto model =
       std::make_shared<qfm::pricing::model::BlackScholes>(market_data_provider);
