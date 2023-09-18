@@ -12,9 +12,22 @@ include_directories(${Boost_INCLUDE_DIR})
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
+find_package(GTest REQUIRED)
+include_directories(${GTest_INCLUDE_DIR})
+
 include_directories(include)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(quant_finance_models "main.cpp" ${SOURCES})
-target_link_libraries(quant_finance_models LINK_PUBLIC ${Boost_LIBRARIES} ${CURL_LIBRARIES})
+target_link_libraries(quant_finance_models LINK_PUBLIC ${Boost_LIBRARIES} ${CURL_LIBRARIES} ${GTest_LIBRARIES})
 
-# add_subdirectory(test)
+<<<<<<< HEAD
+## Testing
+enable_testing()
+include_directories(tests)
+file(GLOB_RECURSE TESTS "tests/*.cpp")
+add_executable(runUnitTests tests/qfm/asset/test_asset.cpp ${TESTS})
+gtest_discover_tests(runUnitTests)
+=======
+# Testing
+add_subdirectory(test)
+>>>>>>> f17942a (Add GoogleTest framework)
