@@ -1,4 +1,4 @@
-name: build
+name: run-unit-tests
 
 on:
   push:
@@ -25,8 +25,14 @@ jobs:
     - name: Install cURL libraries
       run: sudo apt-get install curl libssl-dev libcurl4-openssl-dev
 
+    - name: Install GoogleTest libraries
+      run: sudo apt-get install libgmock-dev libgtest-dev 
+
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Run unit tests
+      run: ${{github.workspace}}/build/test/runUnitTests
