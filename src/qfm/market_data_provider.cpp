@@ -7,6 +7,7 @@
 #include <memory>
 
 #include "qfm/asset/asset.hpp"
+#include "qfm/asset/asset_ticker.hpp"
 
 namespace qfm {
 
@@ -14,12 +15,12 @@ MarketDataProvider::MarketDataProvider(const double interest_rate) noexcept
     : interest_rate_{interest_rate} {}
 
 double MarketDataProvider::GetAssetSpotPrice(
-    const std::string& asset) const noexcept {
+    const asset::AssetTicker& asset) const noexcept {
   return 1.0;
 }
 
 double MarketDataProvider::GetAssetVolatility(
-    const std::string& asset) const noexcept {
+    const asset::AssetTicker& asset) const noexcept {
   return 1.0;
 }
 

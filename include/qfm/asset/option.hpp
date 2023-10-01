@@ -7,6 +7,7 @@
 #include "qfm/asset/asset.hpp"
 #include "qfm/asset/asset_expiration.hpp"
 #include "qfm/asset/asset_strike_price.hpp"
+#include "qfm/asset/asset_ticker.hpp"
 #include "qfm/asset/asset_trait_set.hpp"
 #include "qfm/asset/asset_type.hpp"
 
@@ -15,9 +16,7 @@ namespace asset {
 
 class Option : public Asset {
  public:
-  Option(const std::string& ticker, const AssetType& type,
-         const AssetTraitSet& traits) noexcept;
-  std::string GetUnderlying() const noexcept;
+  AssetTicker GetUnderlying() const noexcept;
   AssetStrikePrice GetStrikePrice() const noexcept;
   AssetExpiration GetExpirationDate() const noexcept;
 };

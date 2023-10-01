@@ -5,6 +5,7 @@
 
 #include "qfm/asset/asset_expiration.hpp"
 #include "qfm/asset/asset_strike_price.hpp"
+#include "qfm/asset/asset_ticker.hpp"
 #include "qfm/asset/asset_trait_set.hpp"
 #include "qfm/asset/asset_type.hpp"
 #include "qfm/asset/option.hpp"
@@ -42,7 +43,7 @@ int main() {
   auto gaussian = boost::math::normal_distribution(0, 1);
   std::cout << "Outputting random value: " << cdf(gaussian, 2) << std::endl;
 
-  std::string ticker{"fake_ticker"};
+  qfm::asset::AssetTicker ticker{"fake_ticker"};
   qfm::asset::AssetType type{qfm::asset::AssetType::call_option};
   qfm::asset::AssetExpiration expiration{1704067200};
   qfm::asset::AssetStrikePrice strike_price{10};
