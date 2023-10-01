@@ -1,3 +1,9 @@
+/* 
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright (c) 2023 David Alvarez Rosa, Matteo Durante
+ */
+
 #include "qfm/asset/asset_type.hpp"
 
 namespace qfm {

@@ -1,3 +1,9 @@
+/* 
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright (c) 2023 David Alvarez Rosa, Matteo Durante
+ */
+
 #pragma once
 
 #include "qfm/market_data_provider.hpp"

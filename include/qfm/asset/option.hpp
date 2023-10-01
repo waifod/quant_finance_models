@@ -1,6 +1,8 @@
-//
-// Created by Durante, Matteo on 19/8/23.
-//
+/* 
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright (c) 2023 David Alvarez Rosa, Matteo Durante
+ */
 
 #pragma once
 
