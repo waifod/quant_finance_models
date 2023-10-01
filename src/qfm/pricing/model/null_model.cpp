@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "qfm/asset/asset.hpp"
+#include "qfm/asset/asset_ticker.hpp"
 #include "qfm/market_data_provider.hpp"
 #include "qfm/pricing/model/model.hpp"
 
@@ -17,7 +18,7 @@ NullModel::NullModel(
 double NullModel::GetAssetPrice(
     std::shared_ptr<asset::Asset> asset) const noexcept {
   std::cout << "No pricing model provided. Returning dummy value for asset: " +
-                   asset->GetTicker()
+                   std::string(asset->GetTicker())
             << std::endl;
   return 1.0;
 }

@@ -11,6 +11,7 @@
 #include <memory>
 
 #include "qfm/asset/asset.hpp"
+#include "qfm/asset/asset_ticker.hpp"
 #include "qfm/asset/asset_type.hpp"
 #include "qfm/asset/trait/expiration_trait.hpp"
 #include "qfm/asset/trait/strike_price_trait.hpp"
@@ -37,7 +38,8 @@ double BlackScholes::GetAssetPrice(
   }
 
   asset::AssetTraitSet traits = asset->GetTraits();
-  std::string underlying = traits.GetValue<asset::trait::UnderlyingTrait>();
+  asset::AssetTicker underlying =
+      asset::AssetTicker(traits.GetValue<asset::trait::UnderlyingTrait>());
   double strike_price =
       std::stod(traits.GetValue<asset::trait::StrikePriceTrait>());
   int64_t expiration =
