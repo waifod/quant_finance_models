@@ -46,6 +46,10 @@ int main() {
   auto market_data_provider = std::make_shared<qfm::MarketDataProvider>(
       yahoo_finance_api, interest_rate);
 
+  auto amzn_asset_quote = market_data_provider->GetAssetQuote(qfm::asset::AssetTicker("AMZN"));
+  std::cout << "Output asset quote of AMZN" << std::endl;
+  std::cout << "bid: " << amzn_asset_quote.bid << " and ask: " << amzn_asset_quote.ask << std::endl;
+
   auto model =
       std::make_shared<qfm::pricing::model::BlackScholes>(market_data_provider);
 

@@ -18,9 +18,7 @@ class MarketDataProvider {
                               const double interest_rate) noexcept;
   double GetAssetSpotPrice(
       const asset::AssetTicker& asset_ticker) const noexcept;
-  double GetAssetAskPrice(
-      const asset::AssetTicker& asset_ticker) const noexcept;
-  double GetAssetBidPrice(
+  AssetQuote GetAssetQuote(
       const asset::AssetTicker& asset_ticker) const noexcept;
   double GetAssetVolatility(const asset::AssetTicker& asset) const noexcept;
   double GetInterestRate() const noexcept;

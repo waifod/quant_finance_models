@@ -12,6 +12,7 @@
 #include <nlohmann/json.hpp>
 
 #include "qfm/asset/asset_ticker.hpp"
+#include "qfm/finance_api.hpp"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp) {
 
 }  // namespace
 
-double YahooFinanceApi::QueryBidPrice(
+AssetQuote YahooFinanceApi::QueryAssetQuote(
     const asset::AssetTicker &asset_ticker) const noexcept {
   CURL *curl = curl_easy_init();
   std::string readBuffer;
@@ -43,27 +44,10 @@ double YahooFinanceApi::QueryBidPrice(
   auto result_array = response["optionChain"]["result"];
   auto quote_object = result_array[0]["quote"];
 
-  return quote_object["bid"];
-}
+  auto bid = quote_object["bid"];
+  auto ask = quote_object["ask"];
 
-double YahooFinanceApi::QueryAskPrice(
-    const asset::AssetTicker &asset_ticker) const noexcept {
-  CURL *curl = curl_easy_init();
-  std::string readBuffer;
-  auto endpoint = "https://query1.finance.yahoo.com/v7/finance/options/" +
-                  std::string(asset_ticker);
-  curl_easy_setopt(curl, CURLOPT_URL, endpoint.c_str());
-  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-  curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
-  curl_easy_perform(curl);
-  curl_easy_cleanup(curl);
-
-  auto response = nlohmann::json::parse(readBuffer);
-
-  auto result_array = response["optionChain"]["result"];
-  auto quote_object = result_array[0]["quote"];
-
-  return quote_object["bid"];
+  return AssetQuote({.bid = bid, .ask = ask});
 }
 
 }  // namespace qfm

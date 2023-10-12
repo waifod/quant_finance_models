@@ -21,14 +21,9 @@ double MarketDataProvider::GetAssetSpotPrice(
   return 1.0;
 }
 
-double MarketDataProvider::GetAssetAskPrice(
+AssetQuote MarketDataProvider::GetAssetQuote(
     const asset::AssetTicker& asset_ticker) const noexcept {
-  return finance_api_->QueryAskPrice(asset_ticker);
-}
-
-double MarketDataProvider::GetAssetBidPrice(
-    const asset::AssetTicker& asset_ticker) const noexcept {
-  return finance_api_->QueryBidPrice(asset_ticker);
+  return finance_api_->QueryAssetQuote(asset_ticker);
 }
 
 double MarketDataProvider::GetAssetVolatility(

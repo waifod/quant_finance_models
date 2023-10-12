@@ -10,13 +10,16 @@
 
 namespace qfm {
 
+struct AssetQuote {
+  double bid;
+  double ask;
+};
+
 class FinanceApi {
  public:
   FinanceApi() = default;
   virtual ~FinanceApi() = default;
-  virtual double QueryBidPrice(
-      const asset::AssetTicker& asset) const noexcept = 0;
-  virtual double QueryAskPrice(
+  virtual AssetQuote QueryAssetQuote(
       const asset::AssetTicker& asset) const noexcept = 0;
 };
 

@@ -14,9 +14,7 @@ namespace qfm {
 class YahooFinanceApi : public FinanceApi {
  public:
   YahooFinanceApi() = default;
-  double QueryBidPrice(
-      const asset::AssetTicker& asset_ticker) const noexcept override;
-  double QueryAskPrice(
+  AssetQuote QueryAssetQuote(
       const asset::AssetTicker& asset_ticker) const noexcept override;
 };
 
