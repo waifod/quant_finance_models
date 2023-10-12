@@ -40,10 +40,8 @@ double YahooFinanceApi::QueryBidPrice(
 
   auto response = nlohmann::json::parse(readBuffer);
 
-  auto result_array =
-      response["optionChain"]["result"];
-  auto quote_object =
-      result_array[0]["quote"];
+  auto result_array = response["optionChain"]["result"];
+  auto quote_object = result_array[0]["quote"];
 
   return quote_object["bid"];
 }
@@ -62,10 +60,8 @@ double YahooFinanceApi::QueryAskPrice(
 
   auto response = nlohmann::json::parse(readBuffer);
 
-  auto result_array =
-      response["optionChain"]["result"];
-  auto quote_object =
-      result_array[0]["quote"];
+  auto result_array = response["optionChain"]["result"];
+  auto quote_object = result_array[0]["quote"];
 
   return quote_object["bid"];
 }
