@@ -16,6 +16,7 @@ const std::string kStock{"stock"};
 const std::string kCallOption{"call_option"};
 const std::string kPutOption{"put_option"};
 const std::string kFuture{"future"};
+const std::string kInvalid{"invalid"};
 }  // namespace
 
 std::string ToString(const AssetType& type) {
@@ -32,6 +33,8 @@ std::string ToString(const AssetType& type) {
       return kPutOption;
     case AssetType::future:
       return kFuture;
+    default:
+      return kInvalid;
   }
 }
 
