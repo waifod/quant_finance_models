@@ -17,4 +17,5 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(quant_finance_models "main.cpp" ${SOURCES})
 target_link_libraries(quant_finance_models LINK_PUBLIC ${Boost_LIBRARIES} ${CURL_LIBRARIES})
 
-# add_subdirectory(test)
+# Testing
+add_subdirectory(test)
