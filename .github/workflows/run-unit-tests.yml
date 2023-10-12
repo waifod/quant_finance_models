@@ -1,4 +1,4 @@
-name: build
+name: run-unit-tests
 
 on:
   push:
@@ -23,10 +23,20 @@ jobs:
       run: sudo apt-get install curl libssl-dev libcurl4-openssl-dev
 
     - name: Install GoogleTest libraries
-      run: sudo apt-get install googletest libgtest-dev
+      run: >
+        sudo apt-get install libgtest-dev &&
+        cd /usr/src/gtest &&
+        sudo cmake CMakeLists.txt &&
+        sudo make &&
+        sudo cp lib/*.a /usr/lib &&
+        sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a &&
+        sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Run unit tests
+      run: ${{github.workspace}}/build/test/runUnitTests
