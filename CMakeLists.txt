@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-find_package(Boost 1.40 COMPONENTS program_options json REQUIRED)
+find_package(Boost 1.65 COMPONENTS json REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 find_package(CURL REQUIRED)
