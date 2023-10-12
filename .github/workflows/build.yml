@@ -16,6 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Update platform
+      run: sudo apt-get update
+
     - name: Install Boost libraries
       run: sudo apt-get install libboost-all-dev
 
