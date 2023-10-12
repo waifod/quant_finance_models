@@ -6,7 +6,6 @@
 
 #include <curl/curl.h>
 
-#include <boost/json.hpp>
 #include <boost/math/distributions/normal.hpp>
 #include <iostream>
 #include <memory>
