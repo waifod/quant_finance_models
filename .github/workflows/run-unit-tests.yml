@@ -22,9 +22,6 @@ jobs:
     - name: Install Boost libraries
       run: sudo apt-get install libboost-all-dev
 
-    - name: fix
-      run: wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz && tar xvf boost_1_80_0.tar.gz && cd boost_1_80_0 && ./bootstrap.sh --prefix=/usr/ && sudo ./b2 install
-
     - name: Install cURL libraries
       run: sudo apt-get install curl libssl-dev libcurl4-openssl-dev
 

@@ -9,7 +9,7 @@
 #include <curl/curl.h>
 #include <curl/easy.h>
 
-#include <boost/json/src.hpp>
+#include <nlohmann/json.hpp>
 
 #include "qfm/asset/asset_ticker.hpp"
 
@@ -38,13 +38,14 @@ double YahooFinanceApi::QueryBidPrice(
   curl_easy_perform(curl);
   curl_easy_cleanup(curl);
 
-  auto response = boost::json::parse(readBuffer);
-  auto result_array =
-      response.get_object()["optionChain"].get_object()["result"];
-  auto quote_object =
-      result_array.get_array()[0].get_object()["quote"].get_object();
+  auto response = nlohmann::json::parse(readBuffer);
 
-  return quote_object["bid"].get_double();
+  auto result_array =
+      response["optionChain"]["result"];
+  auto quote_object =
+      result_array[0]["quote"];
+
+  return quote_object["bid"];
 }
 
 double YahooFinanceApi::QueryAskPrice(
@@ -59,13 +60,14 @@ double YahooFinanceApi::QueryAskPrice(
   curl_easy_perform(curl);
   curl_easy_cleanup(curl);
 
-  auto response = boost::json::parse(readBuffer);
-  auto result_array =
-      response.get_object()["optionChain"].get_object()["result"];
-  auto quote_object =
-      result_array.get_array()[0].get_object()["quote"].get_object();
+  auto response = nlohmann::json::parse(readBuffer);
 
-  return quote_object["ask"].get_double();
+  auto result_array =
+      response["optionChain"]["result"];
+  auto quote_object =
+      result_array[0]["quote"];
+
+  return quote_object["bid"];
 }
 
 }  // namespace qfm
