@@ -8,5 +8,6 @@ add_executable(runUnitTests ${SOURCES} ${UNIT_TEST_SOURCES})
 target_link_libraries(
   runUnitTests
   GTest::gtest_main
+  ${CURL_LIBRARIES}
 )
 gtest_discover_tests(runUnitTests)
