@@ -22,6 +22,9 @@ jobs:
     - name: Install Boost libraries
       run: sudo apt-get install libboost-all-dev
 
+    - name: Install Nlohmann JSON library
+      run: nlohmann-json3-dev
+
     - name: Install cURL libraries
       run: sudo apt-get install curl libssl-dev libcurl4-openssl-dev
 

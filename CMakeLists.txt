@@ -9,10 +9,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 find_package(Boost 1.65 REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
+find_package(nlohmann_json 3.2.0 REQUIRED)
+
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
-
-find_package(nlohmann_json 3.2.0 REQUIRED)
 
 include_directories(include)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
