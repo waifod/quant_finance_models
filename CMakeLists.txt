@@ -16,6 +16,7 @@ find_package(CURL REQUIRED)
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(quant_finance_models "main.cpp" ${SOURCES})
+
 target_include_directories(quant_finance_models
   PUBLIC include
   PRIVATE ${Boost_INCLUDE_DIR} ${CURL_INCLUDE_DIR}
