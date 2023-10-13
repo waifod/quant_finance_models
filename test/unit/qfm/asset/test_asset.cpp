@@ -1,4 +1,9 @@
-#include <gmock/gmock.h>
+/*
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright (c) 2023 David Alvarez Rosa, Matteo Durante
+ */
+
 #include <gtest/gtest.h>
 
 #include "qfm/asset/asset.hpp"
