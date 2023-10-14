@@ -8,7 +8,7 @@ Checks: >
   cppcoreguidelines-*,
   google-*,
   misc-*
-  # modernize-*
+  modernize-*
   # performance-*,
   portability-*,
   # readability-*,
