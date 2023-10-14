@@ -23,8 +23,8 @@ void Pricing::SetModel(std::shared_ptr<model::Model> model,
 
 double Pricing::GetAssetPrice(
     std::shared_ptr<asset::Asset> asset) const noexcept {
-  if (auto iterator = models_.find(asset->GetType());
-      iterator != models_.end()) {
+  auto iterator = models_.find(asset->GetType());
+  if (iterator != models_.end()) {
     return iterator->second->GetAssetPrice(asset);
   }
   return model::NullModel().GetAssetPrice(asset);
