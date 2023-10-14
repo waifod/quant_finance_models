@@ -33,14 +33,16 @@ int main() {
   std::cout << "Outputting random value: " << cdf(gaussian, 2) << std::endl;
   qfm::asset::AssetTicker ticker{"fake_ticker"};
   qfm::asset::AssetType type{qfm::asset::AssetType::call_option};
-  qfm::asset::AssetExpiration expiration{1704067200};
-  qfm::asset::AssetStrikePrice strike_price{10};
+  const int my_expiration = 1704067200;
+  qfm::asset::AssetExpiration expiration{my_expiration};
+  const double my_strike_price = 1704067200;
+  qfm::asset::AssetStrikePrice strike_price{my_strike_price};
   qfm::asset::AssetTraitSet traits{
       {qfm::asset::trait::ExpirationTrait(expiration),
        qfm::asset::trait::StrikePriceTrait(strike_price)}};
   auto asset = std::make_shared<qfm::asset::Asset>(ticker, type, traits);
 
-  double interest_rate = 1.02;
+  const double interest_rate = 1.02;
   std::shared_ptr<qfm::FinanceApi> yahoo_finance_api =
       std::make_shared<qfm::YahooFinanceApi>();
   auto market_data_provider = std::make_shared<qfm::MarketDataProvider>(
