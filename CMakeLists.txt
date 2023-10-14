@@ -8,7 +8,7 @@ project(QuantFinanceModels
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_CLANG_TIDY clang-tidy -checks=-*,readability-*,boost-*,cppcoreguidelines-*,google-*,performance-*,portability-*,modernize-*)
+set(CMAKE_CXX_CLANG_TIDY clang-tidy)
 
 find_package(Boost 1.65 REQUIRED)
 find_package(nlohmann_json 3.2.0 REQUIRED)
