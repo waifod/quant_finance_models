@@ -24,7 +24,7 @@ NullModel::NullModel(
 double NullModel::GetAssetPrice(
     std::shared_ptr<asset::Asset> asset) const noexcept {
   std::cout << "No pricing model provided. Returning dummy value for asset: " +
-                   std::string(asset->GetTicker())
+                   static_cast<std::string>(asset->GetTicker())
             << std::endl;
   return 1.0;
 }

@@ -16,7 +16,8 @@ namespace trait {
 
 StrikePriceTrait::StrikePriceTrait(
     const AssetStrikePrice& strike_price) noexcept
-    : AssetTrait(StrikePriceTrait::Key, std::string(strike_price)) {}
+    : AssetTrait(StrikePriceTrait::Key,
+                 static_cast<std::string>(strike_price)) {}
 
 StrikePriceTrait::StrikePriceTrait(double strike_price) noexcept
     : AssetTrait(StrikePriceTrait::Key, std::to_string(strike_price)) {}

@@ -15,7 +15,8 @@ namespace asset {
 namespace trait {
 
 UnderlyingTrait::UnderlyingTrait(const Asset& asset) noexcept
-    : AssetTrait(UnderlyingTrait::Key, asset.GetTicker()) {}
+    : AssetTrait(UnderlyingTrait::Key,
+                 static_cast<std::string>(asset.GetTicker())) {}
 
 UnderlyingTrait::UnderlyingTrait(const std::string& asset_ticker) noexcept
     : AssetTrait(UnderlyingTrait::Key, asset_ticker) {}
