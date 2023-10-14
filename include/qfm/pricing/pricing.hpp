@@ -19,7 +19,7 @@ namespace pricing {
 class Pricing {
  public:
   void SetModel(std::shared_ptr<model::Model> model,
-                asset::AssetType type) noexcept;
+                const asset::AssetType &type) noexcept;
   double GetAssetPrice(std::shared_ptr<asset::Asset> asset) const noexcept;
 
  private:

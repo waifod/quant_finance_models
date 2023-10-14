@@ -17,7 +17,7 @@ namespace qfm {
 namespace pricing {
 
 void Pricing::SetModel(std::shared_ptr<model::Model> model,
-                       const asset::AssetType type) noexcept {
+                       const asset::AssetType &type) noexcept {
   models_.insert(std::make_pair(type, model));
 }
 
