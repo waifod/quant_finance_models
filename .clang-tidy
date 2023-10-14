@@ -11,6 +11,6 @@ Checks: >
   modernize-*
   performance-*,
   portability-*,
-  # readability-*,
+  readability-*,
 
 WarningsAsErrors: "*"

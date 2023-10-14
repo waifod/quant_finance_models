@@ -15,14 +15,14 @@ namespace qfm {
 class MarketDataProvider {
  public:
   explicit MarketDataProvider(std::shared_ptr<FinanceApi> finance_api,
-                              const double interest_rate) noexcept;
-  double GetAssetSpotPrice(
-      const asset::AssetTicker& asset_ticker) const noexcept;
+                              double interest_rate) noexcept;
+  static double GetAssetSpotPrice(
+      const asset::AssetTicker& asset_ticker) noexcept;
   AssetQuote GetAssetQuote(
       const asset::AssetTicker& asset_ticker) const noexcept;
-  double GetAssetVolatility(const asset::AssetTicker& asset) const noexcept;
+  static double GetAssetVolatility(const asset::AssetTicker& asset) noexcept;
   double GetInterestRate() const noexcept;
-  void SetInterestRate(const double interest_rate) noexcept;
+  void SetInterestRate(double interest_rate) noexcept;
 
  private:
   std::shared_ptr<FinanceApi> finance_api_;

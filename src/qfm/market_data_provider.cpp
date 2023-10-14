@@ -17,7 +17,7 @@ MarketDataProvider::MarketDataProvider(std::shared_ptr<FinanceApi> finance_api,
     : finance_api_{finance_api}, interest_rate_{interest_rate} {}
 
 double MarketDataProvider::GetAssetSpotPrice(
-    const asset::AssetTicker& asset_ticker) const noexcept {
+    const asset::AssetTicker& asset_ticker) noexcept {
   return 1.0;
 }
 
@@ -27,7 +27,7 @@ AssetQuote MarketDataProvider::GetAssetQuote(
 }
 
 double MarketDataProvider::GetAssetVolatility(
-    const asset::AssetTicker& asset_ticker) const noexcept {
+    const asset::AssetTicker& asset_ticker) noexcept {
   return 1.0;
 }
 
