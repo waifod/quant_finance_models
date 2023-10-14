@@ -25,7 +25,7 @@ class AssetTrait {
   bool operator<(const AssetTrait& trait) const;
   bool operator<=(const AssetTrait& trait) const;
 
-  operator std::string() const;
+  explicit operator std::string() const;
 
   static const AssetTrait NO_TRAIT;
 

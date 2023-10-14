@@ -6,7 +6,7 @@ Checks: >
   clang-analyzer-*
   concurrency-*
   cppcoreguidelines-*,
-  # google-*,
+  google-*,
   misc-*
   # modernize-*
   # performance-*,
