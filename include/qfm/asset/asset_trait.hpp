@@ -18,12 +18,12 @@ class AssetTrait {
   std::string GetName() const noexcept;
   std::string GetValue() const noexcept;
 
-  bool operator==(const AssetTrait& trait) const;
-  bool operator!=(const AssetTrait& trait) const;
-  bool operator>(const AssetTrait& trait) const;
-  bool operator>=(const AssetTrait& trait) const;
-  bool operator<(const AssetTrait& trait) const;
-  bool operator<=(const AssetTrait& trait) const;
+  bool operator==(const AssetTrait& rhs) const;
+  bool operator!=(const AssetTrait& rhs) const;
+  bool operator>(const AssetTrait& rhs) const;
+  bool operator>=(const AssetTrait& rhs) const;
+  bool operator<(const AssetTrait& rhs) const;
+  bool operator<=(const AssetTrait& rhs) const;
 
   explicit operator std::string() const;
 

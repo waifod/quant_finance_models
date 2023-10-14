@@ -17,7 +17,7 @@ namespace trait {
 
 class UnderlyingTrait : public AssetTrait {
  public:
-  explicit UnderlyingTrait(const Asset& underlying) noexcept;
+  explicit UnderlyingTrait(const Asset& asset) noexcept;
   explicit UnderlyingTrait(const std::string& asset_ticker) noexcept;
   ~UnderlyingTrait() = default;
 
