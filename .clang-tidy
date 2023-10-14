@@ -5,12 +5,12 @@ Checks: >
   cert-*
   clang-analyzer-*
   concurrency-*
-  # cppcoreguidelines-*,
+  cppcoreguidelines-*,
   # google-*,
   misc-*
   # modernize-*
   # performance-*,
-  # portability-*,
+  portability-*,
   # readability-*,
 
 WarningsAsErrors: "*"
