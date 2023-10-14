@@ -6,12 +6,14 @@
 
 #include "qfm/asset/trait/expiration_trait.hpp"
 
+#include <string>
+
 namespace qfm {
 namespace asset {
 namespace trait {
 
 ExpirationTrait::ExpirationTrait(const AssetExpiration& expiration) noexcept
-    : AssetTrait(ExpirationTrait::Key, expiration) {}
+    : AssetTrait(ExpirationTrait::Key, static_cast<std::string>(expiration)) {}
 
 const std::string ExpirationTrait::Key = "expiration_date";
 

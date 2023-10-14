@@ -23,8 +23,8 @@ class AssetStrikePrice {
   bool operator<(double price) const;
   bool operator>(double price) const;
 
-  operator double() const;
-  operator std::string() const;
+  explicit operator double() const;
+  explicit operator std::string() const;
 
  private:
   const double strike_price_;

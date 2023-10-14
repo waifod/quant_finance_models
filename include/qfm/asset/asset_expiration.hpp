@@ -29,8 +29,8 @@ class AssetExpiration {
   bool operator>(const AssetExpiration& expiration) const;
   bool operator>(const int64_t& expiration) const;
 
-  operator int64_t() const;
-  operator std::string() const;
+  explicit operator int64_t() const;
+  explicit operator std::string() const;
 
  private:
   int64_t expiration_;

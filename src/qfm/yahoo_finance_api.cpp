@@ -14,14 +14,13 @@
 #include "qfm/asset/asset_ticker.hpp"
 #include "qfm/finance_api.hpp"
 
-using namespace std;
-
 namespace qfm {
 
 namespace {
 
 size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp) {
-  ((std::string *)userp)->append((char *)contents, size * nmemb);
+  (static_cast<std::string *>(userp))
+      ->append(static_cast<char *>(contents), size * nmemb);
   return size * nmemb;
 }
 
@@ -32,7 +31,7 @@ AssetQuote YahooFinanceApi::QueryAssetQuote(
   CURL *curl = curl_easy_init();
   std::string readBuffer;
   auto endpoint = "https://query1.finance.yahoo.com/v7/finance/options/" +
-                  std::string(asset_ticker);
+                  static_cast<std::string>(asset_ticker);
   curl_easy_setopt(curl, CURLOPT_URL, endpoint.c_str());
   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
   curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
