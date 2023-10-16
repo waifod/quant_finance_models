@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <memory>
+#include <string>
+
 #include <qfm/asset/asset_expiration.hpp>
 #include <qfm/asset/asset_strike_price.hpp>
 #include <qfm/asset/asset_ticker.hpp>
@@ -19,7 +21,6 @@
 #include <qfm/pricing/model/black_scholes.hpp>
 #include <qfm/pricing/pricing.hpp>
 #include <qfm/yahoo_finance_api.hpp>
-#include <string>
 
 int main() {
   std::cout << "Hello World!" << std::endl;
