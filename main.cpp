@@ -5,6 +5,7 @@
  */
 
 #include <algorithm>
+#include <boost/program_options.hpp>
 #include <iostream>
 #include <memory>
 #include <string>
