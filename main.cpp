@@ -4,8 +4,10 @@
  * Copyright (c) 2023 David Alvarez Rosa, Matteo Durante
  */
 
+#include <algorithm>
+#include <boost/program_options.hpp>
 #include <iostream>
-#include <memory>
+#include <iterator>
 #include <qfm/asset/asset_expiration.hpp>
 #include <qfm/asset/asset_strike_price.hpp>
 #include <qfm/asset/asset_ticker.hpp>
@@ -21,19 +23,45 @@
 #include <qfm/yahoo_finance_api.hpp>
 #include <string>
 
-int main() {
-  std::cout << "Hello World!" << std::endl;
+int main(int argc, char* argv[]) {
+  boost::program_options::options_description options_description(
+      "Quant Finance Models (QFM) CLI utility");
 
-  qfm::asset::AssetTicker ticker{"fake_ticker"};
-  qfm::asset::AssetType type{qfm::asset::AssetType::call_option};
-  const int my_expiration = 1704067200;
-  qfm::asset::AssetExpiration expiration{my_expiration};
-  const double my_strike_price = 1704067200;
-  qfm::asset::AssetStrikePrice strike_price{my_strike_price};
+  std::string input_asset_ticker;
+  int input_expiration;
+  double input_strike_price;
+
+  try {
+    // clang-format off
+    options_description.add_options()
+        ("help,h", "print usage message")
+        ("asset,a", boost::program_options::value<std::string>(&input_asset_ticker), "asset ticket")
+        ("expiration,e", boost::program_options::value<int>(&input_expiration), "expiration date")
+        ("strike-price,s", boost::program_options::value<double>(&input_strike_price), "strike price");
+    // clang-format on
+
+    boost::program_options::variables_map variables_map;
+    boost::program_options::store(boost::program_options::parse_command_line(
+                                      argc, argv, options_description),
+                                  variables_map);
+
+    if (static_cast<bool>(variables_map.count("help"))) {
+      std::cout << options_description;
+      return 0;
+    }
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << "\n";
+  }
+
+  qfm::asset::AssetTicker asset_ticker{input_asset_ticker};
+  qfm::asset::AssetType asset_type{qfm::asset::AssetType::call_option};
+  qfm::asset::AssetExpiration asset_expiration{input_expiration};
+  qfm::asset::AssetStrikePrice strike_price{input_strike_price};
   qfm::asset::AssetTraitSet traits{
-      {qfm::asset::trait::ExpirationTrait(expiration),
+      {qfm::asset::trait::ExpirationTrait(asset_expiration),
        qfm::asset::trait::StrikePriceTrait(strike_price)}};
-  auto asset = std::make_shared<qfm::asset::Asset>(ticker, type, traits);
+  auto asset =
+      std::make_shared<qfm::asset::Asset>(asset_ticker, asset_type, traits);
 
   const double interest_rate = 1.02;
   std::shared_ptr<qfm::FinanceApi> yahoo_finance_api =
@@ -51,5 +79,7 @@ int main() {
       std::make_shared<qfm::pricing::model::BlackScholes>(market_data_provider);
 
   qfm::pricing::Pricing pricing;
-  pricing.SetModel(model, type);
+  pricing.SetModel(model, asset_type);
+
+  return 0;
 }
