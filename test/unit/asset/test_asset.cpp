@@ -6,9 +6,9 @@
 
 #include <gtest/gtest.h>
 
-#include "qfm/asset/asset.hpp"
-#include "qfm/asset/asset_trait_set.hpp"
-#include "qfm/asset/asset_type.hpp"
+#include <qfm/asset/asset.hpp>
+#include <qfm/asset/asset_trait_set.hpp>
+#include <qfm/asset/asset_type.hpp>
 
 TEST(TestAsset, GetTicker) {
   auto fake_ticker = qfm::asset::AssetTicker("fake_ticker");
