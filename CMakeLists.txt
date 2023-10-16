@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(QuantFinanceModels
   VERSION 1.0
-  DESCRIPTION "Quantitative Finance Models"
+  DESCRIPTION "Quantitative Finance Models (QFM) library and CLI application"
   LANGUAGES CXX
 )
 
