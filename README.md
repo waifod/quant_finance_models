@@ -9,7 +9,7 @@ Models to be implemented:
 4. Modern Portfolio Theory
 
 For the first three we plan to create two implementations, one classical
-adn the other one using Monte-Carlo simulations.
+and the other one using Monte-Carlo simulations.
 
 ## Steps
 
