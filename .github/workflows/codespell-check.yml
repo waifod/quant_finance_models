@@ -11,7 +11,7 @@ env:
 
 jobs:
   codespell-check:
-    runs-on: codespell-check
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
