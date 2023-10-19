@@ -6,11 +6,12 @@
 
 #include "qfm/pricing/model/black_scholes.hpp"
 
-#include <boost/math/distributions/normal.hpp>
 #include <chrono>
 #include <cmath>
 #include <iostream>
 #include <memory>
+
+#include <boost/math/distributions/normal.hpp>
 
 #include "qfm/asset/asset.hpp"
 #include "qfm/asset/asset_ticker.hpp"

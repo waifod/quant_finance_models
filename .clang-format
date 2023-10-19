@@ -1,1 +1,9 @@
 BasedOnStyle: Google
+
+IncludeCategories:
+  - Regex:           '^<[a-z_]*>'
+    Priority:        1
+  - Regex:           '<(curl|boost|nlohmann)\/.*>'
+    Priority:        2
+  - Regex:           '^(<|")qfm/.*("|>)'
+    Priority:        3

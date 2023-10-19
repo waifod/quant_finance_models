@@ -8,7 +8,6 @@
 
 #include <curl/curl.h>
 #include <curl/easy.h>
-
 #include <nlohmann/json.hpp>
 
 #include "qfm/asset/asset_ticker.hpp"
