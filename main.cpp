@@ -5,10 +5,11 @@
  */
 
 #include <algorithm>
-#include <boost/program_options.hpp>
 #include <iostream>
 #include <memory>
 #include <string>
+
+#include <boost/program_options.hpp>
 
 #include <qfm/asset/asset_expiration.hpp>
 #include <qfm/asset/asset_strike_price.hpp>
