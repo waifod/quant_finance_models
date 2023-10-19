@@ -7,7 +7,9 @@
 #include <algorithm>
 #include <boost/program_options.hpp>
 #include <iostream>
-#include <iterator>
+#include <memory>
+#include <string>
+
 #include <qfm/asset/asset_expiration.hpp>
 #include <qfm/asset/asset_strike_price.hpp>
 #include <qfm/asset/asset_ticker.hpp>
@@ -21,7 +23,6 @@
 #include <qfm/pricing/model/black_scholes.hpp>
 #include <qfm/pricing/pricing.hpp>
 #include <qfm/yahoo_finance_api.hpp>
-#include <string>
 
 int main(int argc, char* argv[]) {
   boost::program_options::options_description options_description(
